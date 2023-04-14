@@ -1,11 +1,17 @@
 #!/bin/sh
+#
+# energyplus_launcher.sh
+# version 20230414a
+#
 
-version=22-2-0
+version=23-1-0
 energyplus=/Applications/EnergyPlus-$version/energyplus
 
 wCO=/Applications/EnergyPlus-$version/WeatherData/USA_CO_Golden-NREL.724666_TMY3.epw
 wFL=/Applications/EnergyPlus-$version/WeatherData/USA_FL_Tampa.Intl.AP.722110_TMY3.epw
 wIL=/Applications/EnergyPlus-$version/WeatherData/USA_IL_Chicago-OHare.Intl.AP.725300_TMY3.epw
+
+CSVfile="results.csv"
 
 echo $1
 if [[ "$1" == "CO" ]]; then
@@ -52,3 +58,10 @@ echo "Heating: $heating GJ" >> results.txt
 echo "Total Site Energy: $TotSiteEn GJ" >> results.txt
 echo "Total Source Energy: $TotSourceEn GJ" >> results.txt
 
+cd ..
+
+if [ ! -f "$CSVfile" ]; then
+  echo File,Location,Cooling GJ,Heating GJ,TotSiteEn GJ,TotSourceEn GJ,Weather >> $CSVfile
+fi
+
+echo $iddfile,$1,$cooling,$heating,$TotSiteEn,$TotSourceEn,$weather >> $CSVfile
