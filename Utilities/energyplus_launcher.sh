@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 # energyplus_launcher.sh
-# version 20230414a
+# version 20230922a
 #
 
 version=23-1-0
@@ -11,16 +11,21 @@ wCO=/Applications/EnergyPlus-$version/WeatherData/USA_CO_Golden-NREL.724666_TMY3
 wFL=/Applications/EnergyPlus-$version/WeatherData/USA_FL_Tampa.Intl.AP.722110_TMY3.epw
 wIL=/Applications/EnergyPlus-$version/WeatherData/USA_IL_Chicago-OHare.Intl.AP.725300_TMY3.epw
 
-CSVfile="results.csv"
+CSVfile="results"
 
 echo $1
 if [[ "$1" == "CO" ]]; then
   weather=$wCO
+  CSVfile=$CSVfile"_CO"
 elif [[ "$1" == "FL" ]]; then
   weather=$wFL
+  CSVfile=$CSVfile"_FL"
 elif [[ "$1" == "IL" ]]; then
   weather=$wIL
+  CSVfile=$CSVfile"_IL"
 fi
+
+CSVfile=$CSVfile".csv"
 
 echo $energyplus
 echo $weather

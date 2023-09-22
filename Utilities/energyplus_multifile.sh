@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 # energyplus_multifile.sh 
-# version 20230414a
+# version 20230922a
 #
 
 for f in ./*.idf
