@@ -1,7 +1,9 @@
 #!/bin/sh
 #
 # energyplus_launcher.sh
-# version 20230922a
+# version 20230926a
+#
+# Usage: energy_launcher.sh <loc.code> <file>
 #
 
 version=23-1-0
@@ -64,6 +66,8 @@ echo "Total Site Energy: $TotSiteEn GJ" >> results.txt
 echo "Total Source Energy: $TotSourceEn GJ" >> results.txt
 
 cd ..
+
+rm -r $iddfile
 
 if [ ! -f "$CSVfile" ]; then
   echo File,Location,Cooling GJ,Heating GJ,TotSiteEn GJ,TotSourceEn GJ,Weather >> $CSVfile

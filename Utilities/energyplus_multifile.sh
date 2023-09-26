@@ -1,7 +1,9 @@
 #!/bin/sh
 #
 # energyplus_multifile.sh 
-# version 20230922a
+# version 20230926a
+#
+# Usage: energy_multifile.sh <loc.code>
 #
 
 for f in ./*.idf
