@@ -6,7 +6,7 @@
 # Usage: energy_launcher.sh <loc.code> <file>
 #
 
-version=23-1-0
+version=24-1-0
 energyplus=/Applications/EnergyPlus-$version/energyplus
 
 wCO=/Applications/EnergyPlus-$version/WeatherData/USA_CO_Golden-NREL.724666_TMY3.epw
